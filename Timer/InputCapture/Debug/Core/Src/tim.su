@@ -1,0 +1,8 @@
+../Core/Src/tim.c:33:6:MX_TIM1_Init	48	static
+../Core/Src/tim.c:87:6:HAL_TIM_Base_MspInit	48	static
+../Core/Src/tim.c:121:6:HAL_TIM_Base_MspDeInit	16	static
+../Core/Src/tim.c:147:6:HAL_TIM_PeriodElapsedCallback	16	static
+../Core/Src/tim.c:155:6:HAL_TIM_IC_CaptureCallback	24	static
+../Core/Src/tim.c:188:6:capture_init	8	static
+../Core/Src/tim.c:201:13:ultrasonic_delay_us	24	static,ignoring_inline_asm
+../Core/Src/tim.c:212:6:get_distance	8	static

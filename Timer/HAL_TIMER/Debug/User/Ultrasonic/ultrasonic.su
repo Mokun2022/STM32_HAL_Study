@@ -1,0 +1,6 @@
+../User/Ultrasonic/ultrasonic.c:22:13:ultrasonic_delay_us	24	static,ignoring_inline_asm
+../User/Ultrasonic/ultrasonic.c:35:6:ultrasonic_init	8	static
+../User/Ultrasonic/ultrasonic.c:52:9:ultrasonic_single_measure	24	static
+../User/Ultrasonic/ultrasonic.c:95:6:ultrasonic_multiple_measure	24	static
+../User/Ultrasonic/ultrasonic.c:113:6:HAL_TIM_PeriodElapsedCallback	16	static
+../User/Ultrasonic/ultrasonic.c:130:6:HAL_TIM_IC_CaptureCallback	16	static
