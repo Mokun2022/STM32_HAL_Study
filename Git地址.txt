@@ -1,2 +1,6 @@
-HTTPS链接：https://gitee.com/Mokun_gitee/stm32_hal_study.git
-SSH链接：git@gitee.com:Mokun_gitee/stm32_hal_study.git
+HTTPS链接：
+https://gitee.com/Mokun_gitee/stm32_hal_study.git
+https://github.com/Mokun2022/STM32_HAL_Study.git
+
+SSH链接：
+git@gitee.com:Mokun_gitee/stm32_hal_study.git
