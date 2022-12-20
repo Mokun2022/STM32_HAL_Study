@@ -9,8 +9,7 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
--include User/Ultrasonic/subdir.mk
--include Drivers/STM32F4xx_HAL_Driver/Src/subdir.mk
+-include Drivers/STM32F1xx_HAL_Driver/Src/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
 -include objects.mk
@@ -35,34 +34,34 @@ $(wildcard ../makefile.init) \
 $(wildcard ../makefile.targets) \
 
 
-BUILD_ARTIFACT_NAME := HAL_TIMER
+BUILD_ARTIFACT_NAME := UART
 BUILD_ARTIFACT_EXTENSION := elf
 BUILD_ARTIFACT_PREFIX :=
 BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
-HAL_TIMER.elf \
+UART.elf \
 
 MAP_FILES += \
-HAL_TIMER.map \
+UART.map \
 
 SIZE_OUTPUT += \
 default.size.stdout \
 
 OBJDUMP_LIST += \
-HAL_TIMER.list \
+UART.list \
 
 
 # All Target
 all: main-build
 
 # Main-build Target
-main-build: HAL_TIMER.elf secondary-outputs
+main-build: UART.elf secondary-outputs
 
 # Tool invocations
-HAL_TIMER.elf HAL_TIMER.map: $(OBJS) $(USER_OBJS) E:\STM32_HAL_Study\STM32F407\Timer\HAL_TIMER\STM32F407ZETX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-gcc -o "HAL_TIMER.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m4 -T"E:\STM32_HAL_Study\STM32F407\Timer\HAL_TIMER\STM32F407ZETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="HAL_TIMER.map" -Wl,--gc-sections -static -u_printf_float --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+UART.elf UART.map: $(OBJS) $(USER_OBJS) E:\STM32_HAL_Study\STM32F103\HAL_UART\STM32F103RCTX_FLASH.ld makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-gcc -o "UART.elf" @"objects.list" $(USER_OBJS) $(LIBS) -mcpu=cortex-m3 -T"E:\STM32_HAL_Study\STM32F103\HAL_UART\STM32F103RCTX_FLASH.ld" --specs=nosys.specs -Wl,-Map="UART.map" -Wl,--gc-sections -static --specs=nano.specs -mfloat-abi=soft -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
 	@echo 'Finished building target: $@'
 	@echo ' '
 
@@ -71,14 +70,14 @@ default.size.stdout: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 	@echo 'Finished building: $@'
 	@echo ' '
 
-HAL_TIMER.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
-	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "HAL_TIMER.list"
+UART.list: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
+	arm-none-eabi-objdump -h -S $(EXECUTABLES) > "UART.list"
 	@echo 'Finished building: $@'
 	@echo ' '
 
 # Other Targets
 clean:
-	-$(RM) HAL_TIMER.elf HAL_TIMER.list HAL_TIMER.map default.size.stdout
+	-$(RM) UART.elf UART.list UART.map default.size.stdout
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST)
