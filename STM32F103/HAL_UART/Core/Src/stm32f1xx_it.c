@@ -227,12 +227,11 @@ void USART1_IRQHandler(void)
 		uart1_drive.length = uart1_drive.index;
 		uart1_drive.index = 0;
 
-//		HAL_UART_Transmit(&huart1,uart1_drive.RXBuffer,uart1_drive.length,0xffff);
 		printf("%s",uart1_drive.RXBuffer);
 		HAL_GPIO_WritePin(LED0_GPIO_Port, LED0_Pin, GPIO_PIN_SET);
 		memset(uart1_drive.RXBuffer,0,uart1_drive.length);
 
-		__HAL_UART_CLEAR_IDLEFLAG(&huart1);//清除标志位
+//		__HAL_UART_CLEAR_IDLEFLAG(&huart1);//清除标志位
 		__HAL_UART_DISABLE_IT(&huart1,UART_IT_IDLE);	//关闭空闲总断
 	}
   /* USER CODE END USART1_IRQn 0 */
