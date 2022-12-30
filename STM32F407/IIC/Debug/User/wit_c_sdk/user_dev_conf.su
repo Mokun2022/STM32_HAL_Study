@@ -1,0 +1,8 @@
+../User/wit_c_sdk/user_dev_conf.c:18:9:IICreadBytes	40	static
+../User/wit_c_sdk/user_dev_conf.c:27:9:IICwriteBytes	40	static
+../User/wit_c_sdk/user_dev_conf.c:38:6:CopeCmdData	16	static
+../User/wit_c_sdk/user_dev_conf.c:118:13:CopeSensorData	24	static
+../User/wit_c_sdk/user_dev_conf.c:153:13:Delayms	16	static
+../User/wit_c_sdk/user_dev_conf.c:158:13:AutoScanSensor	16	static
+../User/wit_c_sdk/user_dev_conf.c:200:6:imu_init	8	static
+../User/wit_c_sdk/user_dev_conf.c:209:6:imu_get_data	88	static

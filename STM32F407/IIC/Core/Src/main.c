@@ -18,19 +18,21 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "spi.h"
+#include "i2c.h"
 #include "usart.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include <stdio.h>
-#include <string.h>
-#include "../../User/w25qxx/w25qxx.h"
+#include "../../User/wit_c_sdk/user_dev_conf.h"
+#include "../../User/bq34z100/bq34z100.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN PTD */
+
 
 /* USER CODE END PTD */
 
@@ -40,7 +42,6 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
@@ -57,28 +58,8 @@ void SystemClock_Config(void);
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-uint16_t FLASH_ID;
 
-uint8_t read_buf[64];
-uint8_t send_buf[]="Hello World!";
-
-uint8_t data1=250;
-uint8_t data1_read;
-
-//float 单精度浮点数占用32bit空间，不像存储整型或char型数据那么便�??
-//我们在存储float数据时就�??要先将float数变换一下，变换成数组的格式，这样就方便存储和读取了
-//这就是利用了共用体共用一段内存的原理，即 float data �?? uint8_t temp[4]，使用的是一个空间大小的内存�??
-float data2=666.6666;
-union
-{
-	float data;
-	uint8_t temp[4];
-}data2_float;
-union
-{
-	float data;
-	uint8_t temp[4];
-}data2_float_read;
+dev_typef JY61P;
 
 /* USER CODE END 0 */
 
@@ -89,6 +70,7 @@ union
 int main(void)
 {
   /* USER CODE BEGIN 1 */
+
 
   /* USER CODE END 1 */
 
@@ -110,39 +92,11 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
-  MX_SPI1_Init();
   MX_USART3_UART_Init();
+  MX_I2C2_Init();
+  MX_I2C1_Init();
   /* USER CODE BEGIN 2 */
-  W25QXX_Init();				    	//W25QXX初始�??
-
-  printf("uart3 ok\r\n");
-  while(1)
-  {
-	  FLASH_ID = W25QXX_ReadID();
-	  if(W25Q128 == FLASH_ID)
-		  break;
-	  printf("W25Q128 Check Failed!\r\n");
-	  HAL_Delay(500);
-  }
-  printf("W25Q128 Ready!\r\n");
-
-
-#if 0
-   W25QXX_Erase_Chip();
-   data2_float.data = data2;
-   W25QXX_Write(send_buf,100,strlen((char *)send_buf));
-   W25QXX_Write(&data1,200,sizeof(data1));
-   W25QXX_Write(data2_float.temp,300,sizeof(data2_float));
-   HAL_Delay(1000);
-#endif
-
-   W25QXX_Read(read_buf,100,strlen((char *)send_buf));
-   W25QXX_Read(&data1_read,200,sizeof(data1));
-   W25QXX_Read(data2_float_read.temp,300,sizeof(data2_float));
-   printf("%s\r\n",read_buf);
-   printf("%d\r\n",data1_read);
-   printf("%f\r\n",data2_float_read.data);
-
+  imu_init();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -150,7 +104,9 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-
+	  imu_get_data(&JY61P);
+	  bq34z100_test();
+	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -202,6 +158,8 @@ void SystemClock_Config(void)
 }
 
 /* USER CODE BEGIN 4 */
+
+
 
 /* USER CODE END 4 */
 

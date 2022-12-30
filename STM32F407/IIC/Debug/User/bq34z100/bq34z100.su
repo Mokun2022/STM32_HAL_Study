@@ -1,0 +1,4 @@
+../User/bq34z100/bq34z100.c:13:9:bq34z100_read	40	static
+../User/bq34z100/bq34z100.c:22:9:bq34z100_write	40	static
+../User/bq34z100/bq34z100.c:31:14:transBytes2UnsignedInt	24	static
+../User/bq34z100/bq34z100.c:40:6:bq34z100_test	24	static
