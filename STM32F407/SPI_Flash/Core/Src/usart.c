@@ -39,7 +39,7 @@ PUTCHAR_PROTOTYPE
 }
 /* USER CODE END 0 */
 
-UART_HandleTypeDef huart3;
+//UART_HandleTypeDef huart3;
 
 /* USART3 init function */
 

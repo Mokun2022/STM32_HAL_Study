@@ -31,10 +31,10 @@ int32_t bq34z100_write(uint8_t dev, uint8_t reg, uint8_t* data, uint32_t length)
 unsigned int transBytes2UnsignedInt(unsigned char msb, unsigned char lsb)
 {
   unsigned int tmp;
-
   tmp = ((msb << 8) & 0xFF00);
   return ((unsigned int)(tmp + lsb) & 0x0000FFFF);
 }
+
 
 
 void bq34z100_test(void)
@@ -64,6 +64,7 @@ void bq34z100_test(void)
 	current = transBytes2UnsignedInt(msb, lsb);
 //	printf("\r\nmsb:%X\r\nlsb:%X\r\n",msb,lsb);
 	printf("current: %d mA\r\n",current);
+
 	HAL_Delay(1000);
 
 	bq34z100_read(DVE_SLAVEADDR,QUANTITY_CMD,&lsb,1);

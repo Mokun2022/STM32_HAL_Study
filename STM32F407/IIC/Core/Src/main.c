@@ -104,7 +104,7 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  imu_get_data(&JY61P);
+	 // imu_get_data(&JY61P);
 	  bq34z100_test();
 	  HAL_Delay(500);
     /* USER CODE BEGIN 3 */

@@ -1,0 +1,14 @@
+../User/w25qxx/w25qxx.c:18:9:SPI1_ReadWriteByte	32	static
+../User/w25qxx/w25qxx.c:25:6:W25QXX_Init	16	static
+../User/w25qxx/w25qxx.c:59:9:W25QXX_ReadSR	24	static
+../User/w25qxx/w25qxx.c:86:6:W25QXX_Write_SR	24	static
+../User/w25qxx/w25qxx.c:112:6:W25QXX_Write_Enable	8	static
+../User/w25qxx/w25qxx.c:122:6:W25QXX_Write_Disable	8	static
+../User/w25qxx/w25qxx.c:137:10:W25QXX_ReadID	16	static
+../User/w25qxx/w25qxx.c:157:6:W25QXX_Read	40	static
+../User/w25qxx/w25qxx.c:182:6:W25QXX_Write_Page	32	static
+../User/w25qxx/w25qxx.c:212:6:W25QXX_Write_NoCheck	32	static
+../User/w25qxx/w25qxx.c:241:6:W25QXX_Write	40	static
+../User/w25qxx/w25qxx.c:289:6:W25QXX_Erase_Chip	8	static
+../User/w25qxx/w25qxx.c:303:6:W25QXX_Erase_Sector	16	static
+../User/w25qxx/w25qxx.c:324:6:W25QXX_Wait_Busy	8	static
