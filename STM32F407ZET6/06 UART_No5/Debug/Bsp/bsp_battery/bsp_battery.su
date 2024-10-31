@@ -1,0 +1,2 @@
+../Bsp/bsp_battery/bsp_battery.c:19:6:bsp_battery_send	8	static
+../Bsp/bsp_battery/bsp_battery.c:25:6:bsp_battery_get	80	static

@@ -1,0 +1,2 @@
+../Bsp/bsp_power/bsp_power.c:12:6:bsp_set_power_on	8	static
+../Bsp/bsp_power/bsp_power.c:17:6:bsp_set_power_off	8	static

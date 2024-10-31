@@ -1,0 +1,2 @@
+bsp_battery.c:19:6:bsp_battery_send	1
+bsp_battery.c:25:6:bsp_battery_get	5

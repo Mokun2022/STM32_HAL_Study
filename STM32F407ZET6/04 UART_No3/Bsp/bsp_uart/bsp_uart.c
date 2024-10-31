@@ -1,0 +1,74 @@
+/*
+ * bsp_uart.c
+ *
+ *  Created on: 2023年3月9日
+ *      Author: Fdata
+ */
+
+#include "bsp_uart.h"
+#include "usart.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stdarg.h>
+
+
+#ifdef __GNUC__
+#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+#else
+#define PUTCHAR_PROTOTYPE int fputc(int ch, FILE *f)
+#endif
+
+PUTCHAR_PROTOTYPE
+{
+	HAL_UART_Transmit(&huart3, (uint8_t*)&ch,1,HAL_MAX_DELAY);
+    return ch;
+}
+
+uart_t debug;
+
+void bsp_debug_printf(const char *format,...)
+{
+	int length;
+	va_list args;
+
+	va_start(args, format);
+	length = vsnprintf((char*)debug.tx_buff, TX_LEN, (char*)format, args);
+	va_end(args);
+
+//	HAL_UART_Transmit_DMA(&huart3, debug.tx_buff, length);
+	HAL_UART_Transmit(&huart3, debug.tx_buff, length,0xffff);
+}
+
+
+void bsp_uart_init(void)
+{
+	/*Initialize hardware */
+
+	/*Clear receive buffer*/
+	bsp_uart_rx_clear(&debug);
+}
+
+void bsp_uart_rx_clear(uart_t *uart)
+{
+	memset(uart->rx_buff, 0x00, RX_LEN);
+	uart->rx_finish = FALSE;
+	uart->rx_count = 0;
+}
+
+
+void USER_UART_IRQHandler(UART_HandleTypeDef *huart)
+{
+	if(huart->Instance == USART3)
+	{
+		if(RESET != __HAL_UART_GET_FLAG(&huart3, UART_FLAG_IDLE))	//receive 1 packet
+		{
+			__HAL_UART_CLEAR_IDLEFLAG(&huart3);		//Clears the UART IDLE pending flag.
+			HAL_UART_DMAStop(&huart3);		//STOP DMA
+			debug.rx_count = RX_LEN - __HAL_DMA_GET_COUNTER(&hdma_usart3_rx);	//receive how many count
+			debug.rx_finish = TRUE;
+		}
+	}
+}
+
+

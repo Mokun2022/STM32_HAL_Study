@@ -1,0 +1,4 @@
+../Bsp/bsp_uart/bsp_uart.c:21:1:__io_putchar	16	static
+../Bsp/bsp_uart/bsp_uart.c:31:6:bsp_uart_init	8	static
+../Bsp/bsp_uart/bsp_uart.c:39:6:bsp_uart_rx_clear	16	static
+../Bsp/bsp_uart/bsp_uart.c:47:6:USER_UART_IRQHandler	24	static

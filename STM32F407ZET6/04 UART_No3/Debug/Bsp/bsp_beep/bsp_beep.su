@@ -1,0 +1,3 @@
+../Bsp/bsp_beep/bsp_beep.c:11:6:bsp_beep_init	8	static
+../Bsp/bsp_beep/bsp_beep.c:20:6:bsp_set_beep_on	8	static
+../Bsp/bsp_beep/bsp_beep.c:26:6:bsp_set_beep_off	8	static

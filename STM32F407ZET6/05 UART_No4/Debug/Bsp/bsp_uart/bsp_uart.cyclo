@@ -1,0 +1,6 @@
+bsp_uart.c:21:1:__io_putchar	1
+bsp_uart.c:31:13:__irq_lock	1
+bsp_uart.c:36:13:__irq_unlock	1
+bsp_uart.c:42:6:bsp_uart_init	1
+bsp_uart.c:53:6:bsp_uart_rx_clear	1
+bsp_uart.c:63:6:USER_UART_IRQHandler	4

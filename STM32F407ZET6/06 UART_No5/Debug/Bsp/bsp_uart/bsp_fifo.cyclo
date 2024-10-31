@@ -1,0 +1,7 @@
+bsp_fifo.c:20:6:fifo_register	1
+bsp_fifo.c:37:6:fifo_release	1
+bsp_fifo.c:54:10:fifo_get_total_size	2
+bsp_fifo.c:67:10:fifo_get_occupy_size	2
+bsp_fifo.c:80:10:fifo_get_free_size	2
+bsp_fifo.c:100:10:fifo_write	10
+bsp_fifo.c:147:10:fifo_read	10

@@ -1,0 +1,3 @@
+bsp_beep.c:11:6:bsp_beep_init	1
+bsp_beep.c:20:6:bsp_set_beep_on	1
+bsp_beep.c:26:6:bsp_set_beep_off	1

@@ -1,0 +1,4 @@
+../Bsp/bsp_uart/bsp_uart.c:21:1:__io_putchar	16	static
+../Bsp/bsp_uart/bsp_uart.c:31:6:bsp_uart_init	8	static
+../Bsp/bsp_uart/bsp_uart.c:42:6:bsp_uart_rx_clear	16	static
+../Bsp/bsp_uart/bsp_uart.c:50:6:HAL_UART_RxCpltCallback	16	static

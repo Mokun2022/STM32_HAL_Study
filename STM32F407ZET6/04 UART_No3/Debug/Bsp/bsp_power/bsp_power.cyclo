@@ -1,0 +1,2 @@
+bsp_power.c:12:6:bsp_set_power_on	1
+bsp_power.c:17:6:bsp_set_power_off	1

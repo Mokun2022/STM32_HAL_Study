@@ -1,0 +1,6 @@
+../Bsp/bsp_uart/bsp_uart.c:21:1:__io_putchar	16	static
+../Bsp/bsp_uart/bsp_uart.c:31:13:__irq_lock	4	static,ignoring_inline_asm
+../Bsp/bsp_uart/bsp_uart.c:36:13:__irq_unlock	4	static,ignoring_inline_asm
+../Bsp/bsp_uart/bsp_uart.c:42:6:bsp_uart_init	16	static
+../Bsp/bsp_uart/bsp_uart.c:53:6:bsp_uart_rx_clear	16	static,ignoring_inline_asm
+../Bsp/bsp_uart/bsp_uart.c:63:6:USER_UART_IRQHandler	24	static

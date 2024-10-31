@@ -1,0 +1,4 @@
+bsp_uart.c:21:1:__io_putchar	1
+bsp_uart.c:31:6:bsp_uart_init	1
+bsp_uart.c:39:6:bsp_uart_rx_clear	1
+bsp_uart.c:47:6:USER_UART_IRQHandler	6
